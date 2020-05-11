@@ -49,10 +49,7 @@ const List = mongoose.model("List", listSchema);
 
 
 app.get("/", function(req, res) {
-  //const day = date.retDate();
-  //.retDate is function but .retDate() calls the function
-  //console.log(day);
-  //date is the object with .retDate instance
+
   Item.find({}, function(err, foundItems) {
     //founditems is an array which stores the items from the
     //.find() method
@@ -76,12 +73,6 @@ app.get("/", function(req, res) {
 
 //since foundItems is only within the scope of .find() method
 //so we have to use res.render within the function
-
-//res.render (): list is in the folder views.
-//an object is passed with kindOfDay in the list.ejs file
-//the kindOfDay is the constiable that will be changed in the ejs file.
-//kindOfDay will have the value of day
-
 
 app.post("/", function(req, res) {
 
@@ -112,15 +103,7 @@ app.post("/", function(req, res) {
   }
 });
 
-// if (req.body.itemName === "Work") {
-//   workList.push(item);
-//   res.redirect("/work");
-// } else {
-//   items.push(item);
-//   //to use 'body' in the above line we have to activate bodyParser
-//   //using the app.use() method
-//   res.redirect("/");
-// }
+
 
 app.post("/delete", function(req, res) {
   const checkedItemId = req.body.checkbox;
@@ -181,14 +164,6 @@ app.get("/:pageName", function(req, res) {
   });
 });
 
-// app.get("/work", function(req, res) {
-//   res.render("list", {
-//     listTitle: "Work List",
-//     listItem: workList
-//   })
-// });
-
-
 let port = process.env.PORT;
 if (port == null || port == ""){
   port = 3000;
@@ -197,33 +172,3 @@ if (port == null || port == ""){
 app.listen(port, function(req, res) {
   console.log("Server initiated successfully!");
 });
-
-
-
-
-// switch (day) {
-//   case 0:
-//   typeDay = "Sunday";
-//   break;
-//   case 1:
-//   typeDay = "Monday";
-//   break;
-//   case 2:
-//   typeDay = "Tuesday";
-//   break;
-//   case 3:
-//   typeDay = "Wednesday";
-//   break;
-//   case 4:
-//   typeDay = "Thursday";
-//   break;
-//   case 5:
-//   typeDay = "Friday";
-//   break;
-//   case 6:
-//   typeDay = "Saturday";
-//   break;
-//   default:
-//     console.log("error, current day is " + day);
-// //more than 5 if statements use switch
-// }

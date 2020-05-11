@@ -1,6 +1,6 @@
 
 // module.exports = todayDate;
-//dont for the s in exports
+//dont forget the s in exports
 //we dont want the whole module to be associated with one function
 //so we can create instances of the object within the module.
 
